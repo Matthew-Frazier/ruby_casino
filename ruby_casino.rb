@@ -55,7 +55,7 @@ class GameMenu
       MainMenu.new
     else
       puts "Please make a choice"
-      games
+      initialize
     end
   end
 end
