@@ -58,4 +58,6 @@ require "colorize"
           puts
         end
     end
+
+    # That was a pain in the ass
     
