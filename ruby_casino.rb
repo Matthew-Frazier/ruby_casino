@@ -11,21 +11,6 @@ class Casino
     MainMenu.new
   end
 
-  
-  class MainMenu
-    
-  end
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   class Roulette 
     def initialize
       colors = ["black", "black", "black", "black", "red", "red", "red", "red", "green", "black", "black", "black", "red", "red", "red"]
@@ -149,21 +134,8 @@ class Casino
       end
     end
   end
+  
+end
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  end
