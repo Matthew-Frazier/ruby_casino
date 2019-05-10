@@ -1,5 +1,15 @@
 
 class Casino
+  class User
+    puts "What is your name?" 
+    print "\n-- "
+    @user = gets.strip
+    print "\n"
+    puts "What's in your wallet?"
+    print "\n--"
+    @wallet = gets.to_i
+    MainMenu.new
+  end
 
   
   class MainMenu
