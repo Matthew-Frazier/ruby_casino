@@ -1,6 +1,6 @@
 # class casino
 
-class higNlow
+class High_Low
   def initialize
 
     num = rand(1..12) 
@@ -24,4 +24,4 @@ end
   
 end
 
-highNlow.new
+High_Low.new
