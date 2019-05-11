@@ -10,7 +10,7 @@ end
 
 class MainMenu
   def initialize
-    puts "Welcome to the Royal Ruby Casino!"
+    puts "Welcome to the Royal Red Ruby Casino!"
     puts "Please pick an option:"
     puts "1) Games"
     puts "2) View wallet"
@@ -25,10 +25,10 @@ class MainMenu
     when "3"
       # Cash Out
     when "4"
-      puts "We hope you enjoyed your time at the Royal Ruby Casino!!!"
+      puts "We hope you enjoyed your time at the Royal Red Ruby Casino!!!"
       exit
     else
-      puts "Pick 1, 2, or 3 please!"
+      puts "Pick 1, 2, 3, or 4 please!"
       initialize
     end
   end

@@ -1,4 +1,3 @@
-require_relative "../ruby_casino.rb"
 require "pry"
 require "colorize"
 
@@ -81,4 +80,3 @@ class Slots
   end
 end
 
-Slots.new
