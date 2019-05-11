@@ -10,42 +10,55 @@ class Slots
   end
 
   def greeting
-    puts
-    puts "Please put in 5 dollars"
-    print "> $"
-    cash_input = gets.strip.to_i
-    puts
+    print `clear`
+    begin
+      puts "Please put in $5 dollars"
+      print "> $"
+      cash_input = Integer(gets.strip)
+      puts
+    rescue
+      puts "\nThat's not money!!!"
+      sleep(1)
+      print `clear`
+    retry
+    end
     if cash_input == 5
+      print `clear`
       # removes $5 from players wallet
-      game
+      slot_game
     elsif cash_input > 5
       puts "Exessive funds!"
+      sleep(1)
+      print `clear`
       greeting
     else cash_input < 5
       puts "Insufficient funds..."
+      sleep(1)
+      print `clear`
       greeting
     end
   end
 
   def play_again
-    puts
-    puts "Would you like to play again?\n type 'yes' or 'no'"
+    puts "Would you like to play again?\n type 'y' for yes or 'n' for no."
     print "> "
     choice = gets.strip.downcase
-    if choice == "yes"
+    if choice == "y"
+      print `clear`
       greeting
-    elsif choice == "no"
+    elsif choice == "n"
+      print `clear`
       GameMenu.new
     else
+      print `clear`
       play_again
     end
   end
 
-  def game
+  def slot_game
     roll_1 = @roll_1.sample
     roll_2 = @roll_2.sample
     roll_3 = @roll_3.sample
-    puts
     sleep(1)
     print roll_1
     sleep(0.33)
@@ -64,17 +77,19 @@ class Slots
     print "."
     sleep(0.33)
     print roll_3
-    puts
-    puts
-    sleep(0.5)
+    sleep(1.5)
+    print `clear`
     if roll_1 == roll_2 && roll_2 == roll_3
-      puts
-      puts "You Win $50!!!"
+      puts "!!!JACKPOT!!!"
+      puts "You Won $50!!!"
       # adds $50 to players wallet
+      sleep(2)
+      print `clear`
       play_again
     else roll_1 != roll_2 && roll_2 != roll_3
-      puts
       puts "Sorry You're A LOSER!!!"
+      sleep(2)
+      print `clear`
       play_again
     end
   end
