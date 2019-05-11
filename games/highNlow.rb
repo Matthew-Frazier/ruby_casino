@@ -1,8 +1,20 @@
 # class casino
 
-class higNlow
+class High_Low
   def initialize
+    @player_wallet = Wallet.new
 
+    def show
+      puts @player_wallet.view_wallet
+    end
+
+    def bet
+      puts "Place your bets!"
+      input = gets.to_i
+      @player_wallet.win(input)
+    end
+
+    #everything below this line work properly
     num = rand(1..12) 
     puts "Guess a number between 1 and 12"
   
@@ -24,4 +36,4 @@ end
   
 end
 
-highNlow.new
+High_Low.new
