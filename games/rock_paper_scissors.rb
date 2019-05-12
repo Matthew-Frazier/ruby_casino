@@ -1,52 +1,31 @@
-class RockGame
-    def initialize
-   @options = [
-       "rock", 
-       "paper", 
-       "scissors"
-    ]
+player_score = 0
+computer_score = 0
 
-    @options. 
-   puts "Rock, Paper, or Scissors?"
-    choice = gets.strip.downcase
+while true 
+
+    puts "Welcome to rock, paper and scissors"
+    puts "Make your choice. Rock, Paper, or Scissors?"
+    player_choice = gets.chomp.downcase 
+    computer_choice = ["scissors", "rock", "paper",] [rand(3)]
     
-        case choice
-        
-        when
-            choice == "rock" && @options.sample("#{paper}")
-            puts "You Lose!"
-        when
-        choice == "rock" && @options.sample("#{scissors}")
-        puts "You Win!"
-        #add something here to give choice value to wallet
-        when choice == "rock" && @options.sample("#{rock}")
-            puts "Tie game."
-        when 
-            choice == "paper" && @options.sample("#{rock}")
-        puts "You Win!"
-        when 
-            choice == "paper" && @options.sample("#{scissors}")
-            puts "You Lose!"
-        when
-            choice == "paper" && @options.sample("#{paper}")
-        
-            puts "Tie Game!"
-        when 
-            choice == "scissors" & @options.sample("#{rock}")
-        puts "You Lose!"
-        when 
-            choice == "scissors" & @options.sample("#{paper}")
-        puts "You Win!"
-        when 
-            choice == "scissors" & @options.sample("#{scissors}")
-            puts "Tie Game!"
-        else "Invalid Response"
-            
-        end
+    puts "Computer picked #{computer_choice}."
+    puts "You picked #{player_choice}."
 
- 
-
-    end
+answer = case [player_choice, computer_choice]
+        when ["rock", "rock"], ["scissors", "scissors"], ["paper", "paper"]
+         computer_score += 1
+         player_score += 1
+         puts "TIE GAME - you only earned 1 point."
+        when ["rock", "scissors"], ["scissors", "paper"], ["paper", "rock"]
+            player_socre += 3 
+            "You Win! And earned 3 points."
+        when
+            ["rock", "paper"], ["scissors", "rock"], ["paper", "scissors"]
+            computer_score += 3
+        else 
+            puts "Invalid response. Please select rock, paper, or scissors."
+        end 
+        puts answer
+        puts "Your score is: #{player_score}"
+        puts "Computer score is #{computer_score}"
 end 
-RockGame.new
-
