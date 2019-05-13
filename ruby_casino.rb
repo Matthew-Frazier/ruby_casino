@@ -1,16 +1,17 @@
 require_relative "./games/slots.rb"
+require_relative "./games/User_bank.rb"
+
 require "pry"
 require "colorize"
 
-class Casino
+class Casino < Player
   def initialize
-    MainMenu.new
+    super()
+    welcome_menu
+    main_menu
   end
-end
 
-class MainMenu
-  def initialize
-    puts "Welcome to the Royal Red Ruby Casino!"
+  def main_menu 
     puts "Please pick an option:"
     puts "1) Games"
     puts "2) View wallet"
@@ -19,23 +20,22 @@ class MainMenu
     input = gets.strip
     case input
     when "1"
-      GameMenu.new
+      game_menu
     when "2"
-      # View wallet
+      puts "your current wallet is: $#{@wallet}"
+      main_menu
     when "3"
       # Cash Out
     when "4"
-      puts "We hope you enjoyed your time at the Royal Red Ruby Casino!!!"
+      puts "We hope you enjoyed your time at the Red Ruby Casino!!!"
       exit
     else
       puts "Pick 1, 2, 3, or 4 please!"
       initialize
     end
   end
-end
-
-class GameMenu
-  def initialize
+  
+  def game_menu
     puts "Please pick a game"
     puts "1) Slot Machine"
     puts "2) Game 2"
@@ -47,7 +47,13 @@ class GameMenu
     choice = gets.strip
     case choice
     when "1"
-      Slots.new
+      if @wallet < 5
+        puts "You don't have enought money to play this game!"
+        game_menu
+      else
+        Slots.new
+        game_menu
+      end
     when "2"
       # Game 2 goes here
     when "3"
@@ -57,14 +63,14 @@ class GameMenu
     when "5"
       Roulette.new
     when "6"
-      # View wallet
+      puts "your current wallet is: $#{@wallet}"
+      game_menu
     when "7"
-      MainMenu.new
+      main_menu
     else
       puts "Please make a choice"
-      initialize
+      game_menu
     end
   end
 end
-
 Casino.new

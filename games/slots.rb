@@ -1,7 +1,9 @@
+require_relative "./User_bank.rb"
+
 require "pry"
 require "colorize"
 
-class Slots
+class Slots < Player
   def initialize
     @roll_1 = ["Diamonds", "Hearts", "Clubs", "Spades"]
     @roll_2 = ["Diamonds", "Hearts", "Clubs", "Spades"]
@@ -10,33 +12,36 @@ class Slots
   end
 
   def greeting
-    print `clear`
-    begin
-      puts "Please put in $5 dollars"
-      print "> $"
-      cash_input = Integer(gets.strip)
-      puts
-    rescue
-      puts "\nThat's not money!!!"
-      sleep(1)
+    # if @wallet < 5
+    #   game_menu
+    # else
       print `clear`
-    retry
-    end
-    if cash_input == 5
-      print `clear`
-      # removes $5 from players wallet
-      slot_game
-    elsif cash_input > 5
-      puts "Exessive funds!"
-      sleep(1)
-      print `clear`
-      greeting
-    else cash_input < 5
-      puts "Insufficient funds..."
-      sleep(1)
-      print `clear`
-      greeting
-    end
+      begin
+        puts "Please put in $5 dollars"
+        print "> $"
+        cash_input = Integer(gets.strip)
+        puts
+      rescue
+        puts "\nThat's not money!!!"
+        sleep(1)
+        print `clear`
+      retry
+      end
+      if cash_input == 5
+        print `clear`
+        slot_game
+      elsif cash_input > 5
+        puts "Exessive funds!"
+        sleep(1)
+        print `clear`
+        greeting
+      else cash_input < 5
+        puts "Insufficient funds..."
+        sleep(1)
+        print `clear`
+        greeting
+      end
+    # end
   end
 
   def play_again
@@ -48,7 +53,6 @@ class Slots
       greeting
     elsif choice == "n"
       print `clear`
-      GameMenu.new
     else
       print `clear`
       play_again
@@ -94,4 +98,3 @@ class Slots
     end
   end
 end
-
