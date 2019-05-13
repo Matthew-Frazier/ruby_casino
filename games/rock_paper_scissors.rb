@@ -1,8 +1,8 @@
-require_relative "./games/User_bank.rb"
-require_relative "./ruby_casino.rb"
+require_relative "./User_bank.rb"
+
 require 'colorize'
 $player_score = 0
-class RockPaper > Player
+class RockPaper < Player
     def initialize
         while true 
             puts "Welcome to rock, paper and scissors"
@@ -45,4 +45,3 @@ class RockPaper > Player
        
     end 
 end
-RockPaper.new

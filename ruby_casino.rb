@@ -1,5 +1,6 @@
 require_relative "./games/slots.rb"
 require_relative "./games/User_bank.rb"
+require_relative "./games/rock_paper_scissors.rb"
 
 require "pry"
 require "colorize"
@@ -38,7 +39,7 @@ class Casino < Player
   def game_menu
     puts "Please pick a game"
     puts "1) Slot Machine"
-    puts "2) Game 2"
+    puts "2) Rock Paper Scissors"
     puts "3) Game 3"
     puts "4) Game 4"
     puts "5) Game 5"
@@ -55,7 +56,8 @@ class Casino < Player
         game_menu
       end
     when "2"
-      # Game 2 goes here
+      RockPaper.new
+      game_menu
     when "3"
       # Game 3 goes here
     when "4"
