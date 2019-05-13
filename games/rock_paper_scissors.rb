@@ -1,6 +1,8 @@
+require_relative "./games/User_bank.rb"
+require_relative "./ruby_casino.rb"
 require 'colorize'
 $player_score = 0
-class RockPaper
+class RockPaper > Player
     def initialize
         while true 
             puts "Welcome to rock, paper and scissors"
@@ -33,8 +35,13 @@ class RockPaper
                 puts "Invalid response. Please select rock, paper, or scissors."
             end
         end 
-        puts answer
-        puts "Your score is: #{$player_score}"
+        
+        def home_screen
+            main_menu
+        end
+           
+
+
        
     end 
 end
